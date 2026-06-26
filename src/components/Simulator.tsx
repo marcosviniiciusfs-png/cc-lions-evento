@@ -19,7 +19,6 @@ const WORKER_URL = "https://cc-lions-evento-lead.marcosviniicius-fs.workers.dev/
 type FormData = {
   fullName: string;
   whatsapp: string;
-  cityNeighborhood: string;
   city: string;
   neighborhoodCondo: string;
   instagramHandle: string;
@@ -28,7 +27,6 @@ type FormData = {
 const emptyForm: FormData = {
   fullName: "",
   whatsapp: "",
-  cityNeighborhood: "",
   city: "",
   neighborhoodCondo: "",
   instagramHandle: "",
@@ -49,7 +47,6 @@ const Simulator = () => {
   const validate = (): string | null => {
     if (!formData.fullName.trim()) return "Informe o seu nome.";
     if (formData.whatsapp.replace(/\D/g, "").length !== 11) return "Telefone invalido. Use (DDD) 9XXXX-XXXX.";
-    if (!formData.cityNeighborhood.trim()) return "Informe de qual cidade/bairro voce e.";
     if (!formData.city.trim()) return "Informe a sua cidade.";
     if (!formData.neighborhoodCondo.trim()) return "Informe o seu bairro ou condominio.";
     if (!formData.instagramHandle.trim()) return "Informe o seu arroba do Instagram.";
@@ -87,7 +84,6 @@ const Simulator = () => {
     const payload = {
       ...formData,
       fullName: formData.fullName.trim(),
-      cityNeighborhood: formData.cityNeighborhood.trim(),
       city: formData.city.trim(),
       neighborhoodCondo: formData.neighborhoodCondo.trim(),
       instagramHandle: formData.instagramHandle.trim(),
@@ -171,20 +167,6 @@ const Simulator = () => {
                 />
               )}
             </InputMask>
-          </div>
-
-          <div className="space-y-2">
-            <Label htmlFor="cityNeighborhood">
-              De qual cidade/bairro voce e?
-              <RequiredMark />
-            </Label>
-            <Input
-              id="cityNeighborhood"
-              value={formData.cityNeighborhood}
-              onChange={(e) => setField("cityNeighborhood", e.target.value)}
-              placeholder="Ex: Belo Horizonte / Savassi"
-              autoComplete="street-address"
-            />
           </div>
 
           <div className="space-y-2">

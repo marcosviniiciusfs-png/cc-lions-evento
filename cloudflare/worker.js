@@ -138,7 +138,6 @@ async function sendToSupabase(env, payload) {
   const body = {
     nome: payload.fullName,
     telefone: payload.whatsapp,
-    cidade_bairro: payload.cityNeighborhood,
     cidade: payload.city,
     bairro_condominio: payload.neighborhoodCondo,
     instagram: payload.instagramHandle,
