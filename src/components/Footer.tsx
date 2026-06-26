@@ -20,11 +20,15 @@ const Footer = () => {
             <div className="space-y-3 text-sm text-white/80">
               <div className="flex items-center gap-3">
                 <Phone className="h-4 w-4 flex-shrink-0" />
-                <span>Telefone informado no cadastro</span>
+                <a href="tel:+5531987600474" className="transition-colors hover:text-white">
+                  (31) 98760-0474
+                </a>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="h-4 w-4 flex-shrink-0" />
-                <span>Organizacao CC Lions Evento</span>
+                <a href="mailto:comercial@cclions.com.br" className="transition-colors hover:text-white">
+                  comercial@cclions.com.br
+                </a>
               </div>
             </div>
           </div>
@@ -33,13 +37,14 @@ const Footer = () => {
             <h3 className="mb-4 text-lg font-bold">Redes</h3>
             <div className="flex items-center gap-4">
               <a
-                href="https://www.instagram.com/"
+                href="https://www.instagram.com/cclionsoficial"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/80 transition-colors hover:text-white"
-                aria-label="Instagram"
+                className="flex items-center gap-3 text-white/80 transition-colors hover:text-white"
+                aria-label="Instagram da CC Lions"
               >
                 <Instagram className="h-7 w-7" />
+                <span className="text-sm">@cclionsoficial</span>
               </a>
             </div>
           </div>
