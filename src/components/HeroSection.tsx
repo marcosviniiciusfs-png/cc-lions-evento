@@ -1,6 +1,6 @@
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import raffleHero from "@/assets/atletico-raffle-hero.jpg";
+import raffleHero from "@/assets/arte-da-camisa-do-galo.png";
 
 interface HeroSectionProps {
   onSimulateClick: () => void;
@@ -19,12 +19,20 @@ const HeroSection = ({ onSimulateClick }: HeroSectionProps) => {
       id="inicio"
       className="relative min-h-[calc(92svh-7rem)] overflow-hidden bg-black text-white"
     >
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(circle at 85% 45%, rgba(212, 162, 38, 0.28), transparent 32%), linear-gradient(135deg, #020202 0%, #080808 48%, #f4f1e9 100%)",
+        }}
+      />
       <img
         src={raffleHero}
-        alt="Camisa alvinegra autografada e ingresso de jogo em clima de sorteio"
-        className="absolute inset-0 h-full w-full object-cover"
+        alt="Camisa do Atletico Mineiro do sorteio"
+        className="absolute bottom-0 right-[-34%] h-[82%] w-auto max-w-none object-contain opacity-45 sm:right-[-18%] md:inset-y-0 md:right-0 md:h-full md:w-[58%] md:object-contain md:object-right md:opacity-100"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-black/20" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/90 to-black/25 md:via-black/78 md:to-black/5" />
+      <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-black to-transparent" />
 
       <div className="container relative mx-auto flex min-h-[calc(92svh-7rem)] items-center px-4 py-16 md:py-20">
         <div className="max-w-3xl space-y-7 animate-fade-in">
