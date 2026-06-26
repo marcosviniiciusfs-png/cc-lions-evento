@@ -2,8 +2,6 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useSimulatorModal } from "@/contexts/SimulatorModalContext";
-import grupoEfataLogo from "@/assets/grupo-efata-logo.png";
-
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -23,76 +21,80 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[hsl(var(--header-footer))] shadow-sm">
-      <div className="container mx-auto px-4 py-2 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <img src={grupoEfataLogo} alt="Grupo Efata" className="h-24 w-auto" />
-        </div>
+    <header className="fixed left-0 right-0 top-0 z-50 bg-black/90 text-white shadow-sm backdrop-blur">
+      <div className="container mx-auto flex items-center justify-between px-4 py-4">
+        <button
+          onClick={() => scrollToSection("inicio")}
+          className="flex flex-col text-left leading-tight"
+          aria-label="Voltar ao inicio"
+        >
+          <span className="text-lg font-black uppercase tracking-wide">CC Lions Evento</span>
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">
+            Sorteio do Galo
+          </span>
+        </button>
 
-        {/* Desktop Menu */}
-        <nav className="hidden md:flex items-center gap-6">
+        <nav className="hidden items-center gap-6 md:flex">
           <button
             onClick={() => scrollToSection("inicio")}
-            className="text-white hover:text-white/80 transition-colors"
+            className="text-white/90 transition-colors hover:text-white"
           >
-            Início
-          </button>
-          <button
-            onClick={triggerSimulator}
-            className="text-white hover:text-white/80 transition-colors"
-          >
-            Simulador
+            Inicio
           </button>
           <button
             onClick={() => scrollToSection("beneficios")}
-            className="text-white hover:text-white/80 transition-colors"
+            className="text-white/90 transition-colors hover:text-white"
           >
-            Benefícios
+            Premios
+          </button>
+          <button
+            onClick={triggerSimulator}
+            className="text-white/90 transition-colors hover:text-white"
+          >
+            Participar
           </button>
           <button
             onClick={() => scrollToSection("contato")}
-            className="text-white hover:text-white/80 transition-colors"
+            className="text-white/90 transition-colors hover:text-white"
           >
             Contato
           </button>
         </nav>
 
-        {/* Mobile Menu Button */}
         <Button
           variant="ghost"
           size="icon"
-          className="md:hidden text-white hover:bg-white/10"
+          className="text-white hover:bg-white/10 md:hidden"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </Button>
       </div>
 
-      {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-[hsl(var(--header-footer))]">
-          <nav className="container mx-auto px-4 py-4 flex flex-col gap-4">
+        <div className="border-t border-white/10 bg-black md:hidden">
+          <nav className="container mx-auto flex flex-col gap-2 px-4 py-4">
             <button
               onClick={() => scrollToSection("inicio")}
-              className="text-white hover:text-white/80 transition-colors text-left py-2"
+              className="py-2 text-left text-white/90 transition-colors hover:text-white"
             >
-              Início
-            </button>
-            <button
-              onClick={triggerSimulator}
-              className="text-white hover:text-white/80 transition-colors text-left py-2"
-            >
-              Simulador
+              Inicio
             </button>
             <button
               onClick={() => scrollToSection("beneficios")}
-              className="text-white hover:text-white/80 transition-colors text-left py-2"
+              className="py-2 text-left text-white/90 transition-colors hover:text-white"
             >
-              Benefícios
+              Premios
+            </button>
+            <button
+              onClick={triggerSimulator}
+              className="py-2 text-left text-white/90 transition-colors hover:text-white"
+            >
+              Participar
             </button>
             <button
               onClick={() => scrollToSection("contato")}
-              className="text-white hover:text-white/80 transition-colors text-left py-2"
+              className="py-2 text-left text-white/90 transition-colors hover:text-white"
             >
               Contato
             </button>

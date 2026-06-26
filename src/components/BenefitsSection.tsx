@@ -1,52 +1,51 @@
-import { MessageCircle, DollarSign, FileText } from "lucide-react";
+import { Gift, MessageCircle, Ticket } from "lucide-react";
 
 const BenefitsSection = () => {
   const benefits = [
     {
+      icon: Gift,
+      title: "Camisa autografada",
+      description: "Uma camisa alvinegra autografada pelos jogadores para guardar como item de colecionador.",
+    },
+    {
+      icon: Ticket,
+      title: "Ingresso para o jogo",
+      description: "O ganhador tambem leva um ingresso para viver a experiencia do Atletico Mineiro de perto.",
+    },
+    {
       icon: MessageCircle,
-      title: "Receba direto no WhatsApp",
-      description: "Sua simulação de crédito é enviada rapidamente para o seu WhatsApp com todas as informações necessárias."
+      title: "Cadastro rapido",
+      description: "Preencha seus dados no popup e deixe seu telefone e Instagram para validarmos sua participacao.",
     },
-    {
-      icon: DollarSign,
-      title: "Parcelas que cabem no seu bolso",
-      description: "Encontramos as melhores condições de financiamento com parcelas que se adequam ao seu orçamento."
-    },
-    {
-      icon: FileText,
-      title: "Simulação sem compromisso",
-      description: "Faça quantas simulações quiser, totalmente grátis e sem consulta ao SPC ou Serasa."
-    }
   ];
 
   return (
-    <section id="beneficios" className="py-16 bg-secondary/30">
+    <section id="beneficios" className="bg-background py-14 md:py-16">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-            Por que escolher o Grupo Efata?
+        <div className="mb-10 max-w-3xl">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-primary">
+            Premios do sorteio
+          </p>
+          <h2 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">
+            Cadastre-se para concorrer aos itens oficiais da experiencia atleticana
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Oferecemos as melhores condições do mercado com total transparência e agilidade.
+          <p className="text-lg text-muted-foreground">
+            O formulario serve apenas para registrar os interessados no sorteio e organizar o contato com os participantes.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid gap-6 md:grid-cols-3">
           {benefits.map((benefit, index) => (
             <div
-              key={index}
-              className="bg-card rounded-xl p-8 shadow-md hover:shadow-xl transition-all hover:-translate-y-1 animate-fade-in"
+              key={benefit.title}
+              className="rounded-lg border border-border bg-card p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md animate-fade-in"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="w-16 h-16 rounded-full bg-orange/10 flex items-center justify-center mb-6 mx-auto">
-                <benefit.icon className="w-8 h-8 text-orange" />
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
+                <benefit.icon className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-3 text-center">
-                {benefit.title}
-              </h3>
-              <p className="text-muted-foreground text-center leading-relaxed">
-                {benefit.description}
-              </p>
+              <h3 className="mb-3 text-xl font-bold text-foreground">{benefit.title}</h3>
+              <p className="leading-relaxed text-muted-foreground">{benefit.description}</p>
             </div>
           ))}
         </div>

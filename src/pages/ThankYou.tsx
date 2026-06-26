@@ -4,27 +4,27 @@ import { Link } from "react-router-dom";
 
 const ThankYou = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background px-4">
-      <div className="max-w-md w-full text-center space-y-6">
+    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+      <div className="w-full max-w-md space-y-6 text-center">
         <div className="flex justify-center">
           <div className="rounded-full bg-primary/10 p-6">
-            <CheckCircle className="w-16 h-16 text-primary" />
+            <CheckCircle className="h-16 w-16 text-primary" />
           </div>
         </div>
 
         <div className="space-y-3">
-          <h1 className="text-3xl md:text-4xl font-bold text-foreground">
-            Obrigado!
+          <h1 className="text-3xl font-bold text-foreground md:text-4xl">
+            Cadastro confirmado!
           </h1>
           <p className="text-lg text-muted-foreground">
-            Sua solicitação foi enviada com sucesso! Em breve entraremos em contato via WhatsApp.
+            Seus dados foram registrados para o sorteio da camisa autografada e do ingresso para o jogo do Atletico Mineiro.
           </p>
         </div>
 
         <div className="pt-4">
           <Link to="/">
             <Button className="bg-primary hover:bg-primary-hover">
-              Voltar para o início
+              Voltar para o sorteio
             </Button>
           </Link>
         </div>

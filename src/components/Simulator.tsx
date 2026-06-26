@@ -34,7 +34,7 @@ const emptyForm: FormData = {
   instagramHandle: "",
 };
 
-const RequiredMark = () => <span className="text-destructive ml-1">*</span>;
+const RequiredMark = () => <span className="ml-1 text-destructive">*</span>;
 
 const Simulator = () => {
   const { isOpen, close } = useSimulatorModal();
@@ -48,10 +48,10 @@ const Simulator = () => {
 
   const validate = (): string | null => {
     if (!formData.fullName.trim()) return "Informe o seu nome.";
-    if (formData.whatsapp.replace(/\D/g, "").length !== 11) return "Telefone inválido. Use (DDD) 9XXXX-XXXX.";
-    if (!formData.cityNeighborhood.trim()) return "Informe de qual cidade/bairro você é.";
+    if (formData.whatsapp.replace(/\D/g, "").length !== 11) return "Telefone invalido. Use (DDD) 9XXXX-XXXX.";
+    if (!formData.cityNeighborhood.trim()) return "Informe de qual cidade/bairro voce e.";
     if (!formData.city.trim()) return "Informe a sua cidade.";
-    if (!formData.neighborhoodCondo.trim()) return "Informe o seu bairro ou condomínio.";
+    if (!formData.neighborhoodCondo.trim()) return "Informe o seu bairro ou condominio.";
     if (!formData.instagramHandle.trim()) return "Informe o seu arroba do Instagram.";
     return null;
   };
@@ -91,6 +91,8 @@ const Simulator = () => {
       city: formData.city.trim(),
       neighborhoodCondo: formData.neighborhoodCondo.trim(),
       instagramHandle: formData.instagramHandle.trim(),
+      campaign: "sorteio_camisa_autografada_ingresso_atletico_mineiro",
+      prizes: ["camisa_autografada", "ingresso_jogo_atletico_mineiro"],
       data_entrada: today,
       event_id: eventId,
       fbp: getCookie("_fbp"),
@@ -122,15 +124,17 @@ const Simulator = () => {
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => (open ? null : close())}>
-      <DialogContent className="max-w-md sm:max-w-lg max-h-[90vh] overflow-y-auto">
+      <DialogContent className="max-h-[90vh] max-w-md overflow-y-auto sm:max-w-lg">
         <DialogHeader>
-          <DialogTitle className="text-2xl text-primary">Cadastro CC Lions</DialogTitle>
+          <DialogTitle className="text-2xl text-primary">
+            Inscricao para o sorteio
+          </DialogTitle>
           <DialogDescription>
-            Preencha os dados abaixo para participar do evento.
+            Preencha os dados para concorrer a camisa autografada e ao ingresso para o jogo do Atletico Mineiro.
           </DialogDescription>
         </DialogHeader>
 
-        <form onSubmit={handleSubmit} className="space-y-4 mt-2">
+        <form onSubmit={handleSubmit} className="mt-2 space-y-4">
           <div className="space-y-2">
             <Label htmlFor="fullName">
               Qual o seu nome?
@@ -171,14 +175,14 @@ const Simulator = () => {
 
           <div className="space-y-2">
             <Label htmlFor="cityNeighborhood">
-              De qual cidade/bairro você é?
+              De qual cidade/bairro voce e?
               <RequiredMark />
             </Label>
             <Input
               id="cityNeighborhood"
               value={formData.cityNeighborhood}
               onChange={(e) => setField("cityNeighborhood", e.target.value)}
-              placeholder="Ex: Campinas / Cambuí"
+              placeholder="Ex: Belo Horizonte / Savassi"
               autoComplete="street-address"
             />
           </div>
@@ -199,14 +203,14 @@ const Simulator = () => {
 
           <div className="space-y-2">
             <Label htmlFor="neighborhoodCondo">
-              Qual o seu bairro/condomínio?
+              Qual o seu bairro/condominio?
               <RequiredMark />
             </Label>
             <Input
               id="neighborhoodCondo"
               value={formData.neighborhoodCondo}
               onChange={(e) => setField("neighborhoodCondo", e.target.value)}
-              placeholder="Digite o bairro ou condomínio"
+              placeholder="Digite o bairro ou condominio"
               autoComplete="address-level3"
             />
           </div>
@@ -228,9 +232,9 @@ const Simulator = () => {
           <Button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-primary hover:bg-primary-hover text-primary-foreground font-semibold py-6 text-base"
+            className="w-full py-6 text-base font-semibold"
           >
-            {isSubmitting ? "Enviando..." : "Enviar cadastro"}
+            {isSubmitting ? "Enviando..." : "Participar do sorteio"}
           </Button>
         </form>
       </DialogContent>

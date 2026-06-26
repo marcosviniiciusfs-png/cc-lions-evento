@@ -1,8 +1,8 @@
 /**
- * CC Lions Evento lead intake Worker.
+ * CC Lions Evento raffle lead intake Worker.
  *
  * Pipeline:
- *   [Site] POST /  --->  [Worker]  --->  Supabase webhook (CRM destination)
+ *   [Site] POST /  --->  [Worker]  --->  Supabase webhook (lead destination)
  *                                  --->  Meta Graph API (Conversions API "Lead" event)
  *
  * The Worker responds 202 immediately and continues fan-out via waitUntil(),
@@ -142,6 +142,8 @@ async function sendToSupabase(env, payload) {
     cidade: payload.city,
     bairro_condominio: payload.neighborhoodCondo,
     instagram: payload.instagramHandle,
+    campanha: payload.campaign || "sorteio_camisa_autografada_ingresso_atletico_mineiro",
+    premios: payload.prizes || ["camisa_autografada", "ingresso_jogo_atletico_mineiro"],
     data_entrada: payload.data_entrada,
     event_id: payload.event_id,
   };

@@ -1,97 +1,60 @@
-import { Phone, MapPin, Clock, Instagram } from "lucide-react";
-import grupoEfataLogo from "@/assets/grupo-efata-logo.png";
-import facebookIcon from "@/assets/facebook.png";
+import { Instagram, Mail, Phone } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer id="contato" className="bg-[hsl(var(--header-footer))] text-white">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
-          {/* Logo e Descrição */}
-          <div>
-            <div className="flex flex-col items-center md:items-start gap-2 mb-4">
-              <img src={grupoEfataLogo} alt="Grupo Efata" className="h-28 w-auto" />
-            </div>
-            <div className="flex items-center gap-4 mt-2">
-              <a
-                href="https://www.facebook.com/profile.php?id=61572364243565#"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-white/80 transition-colors"
-                aria-label="Facebook do Grupo Efata">
-                <img src={facebookIcon} alt="Facebook" className="w-8 h-8" />
-              </a>
-              <a
-                href="https://www.instagram.com/grupoefata"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-white/80 transition-colors"
-                aria-label="Instagram do Grupo Efata">
-                <Instagram className="w-8 h-8" />
-              </a>
-            </div>
+    <footer id="contato" className="bg-black text-white">
+      <div className="container mx-auto px-4 py-10">
+        <div className="grid gap-8 md:grid-cols-[1.4fr_1fr_1fr]">
+          <div className="space-y-3">
+            <p className="text-xl font-black uppercase tracking-wide">CC Lions Evento</p>
+            <p className="max-w-md text-sm leading-relaxed text-white/70">
+              Cadastro de interessados para o sorteio de uma camisa autografada e um ingresso para jogo do Atletico Mineiro.
+            </p>
+            <p className="max-w-md text-xs leading-relaxed text-white/60">
+              Sorteio promocional independente. Marcas citadas pertencem aos seus respectivos titulares.
+            </p>
           </div>
 
-          {/* Contato */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Fale Conosco</h3>
-            <div className="space-y-3">
-              <div className="flex items-start gap-3">
-                <Phone className="w-5 h-5 mt-1 flex-shrink-0" />
-                <div>
-                  <p className="font-semibold">WhatsApp</p>
-                  <p className="text-white/90">(67) 99208-0091</p>
-                  <p className="text-white/90">(67) 99263-0091</p>
-                </div>
+            <h3 className="mb-4 text-lg font-bold">Contato</h3>
+            <div className="space-y-3 text-sm text-white/80">
+              <div className="flex items-center gap-3">
+                <Phone className="h-4 w-4 flex-shrink-0" />
+                <span>Telefone informado no cadastro</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <Mail className="h-4 w-4 flex-shrink-0" />
+                <span>Organizacao CC Lions Evento</span>
               </div>
             </div>
           </div>
 
-          {/* Localização e Horário */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Localização</h3>
-            <div className="space-y-3">
-              <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 mt-1 flex-shrink-0" />
-                <div>
-                  <p className="text-white/90">
-                    Rua Bruno Garcia, 162 – Centro<br />
-                    Três Lagoas-MS
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <Clock className="w-5 h-5 mt-1 flex-shrink-0" />
-                <div>
-                  <p className="font-semibold">Horário de Atendimento</p>
-                  <p className="text-white/90">
-                    Segunda à Sexta: 8h às 18h<br />
-                    Sábado: 8h às 12h
-                  </p>
-                </div>
-              </div>
+            <h3 className="mb-4 text-lg font-bold">Redes</h3>
+            <div className="flex items-center gap-4">
+              <a
+                href="https://www.instagram.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/80 transition-colors hover:text-white"
+                aria-label="Instagram"
+              >
+                <Instagram className="h-7 w-7" />
+              </a>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-white/20 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-white/90 text-sm">
-              © 2026 Grupo Efata. Todos os direitos reservados.
-            </p>
-            <div className="flex gap-6 text-sm">
-              <button className="text-white/90 hover:text-white transition-colors">
-                Política de Privacidade
-              </button>
-              <button className="text-white/90 hover:text-white transition-colors">
-                Termos de Uso
-              </button>
-            </div>
+        <div className="mt-8 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm text-white/70 md:flex-row md:items-center md:justify-between">
+          <p>© 2026 CC Lions Evento. Todos os direitos reservados.</p>
+          <div className="flex gap-5">
+            <button className="transition-colors hover:text-white">Politica de Privacidade</button>
+            <button className="transition-colors hover:text-white">Termos de Uso</button>
           </div>
         </div>
       </div>
-    </footer>);
-
+    </footer>
+  );
 };
 
 export default Footer;

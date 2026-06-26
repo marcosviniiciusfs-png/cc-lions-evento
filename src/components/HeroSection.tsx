@@ -1,59 +1,64 @@
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroBanner from "@/assets/hero-banner.png";
+import raffleHero from "@/assets/atletico-raffle-hero.jpg";
 
 interface HeroSectionProps {
   onSimulateClick: () => void;
 }
 
 const HeroSection = ({ onSimulateClick }: HeroSectionProps) => {
-  const benefits = [
-    "100% Gratuito",
-    "Sem consulta ao SPC",
-    "Resultado no WhatsApp",
-    "Lojas em parceria"
+  const highlights = [
+    "Camisa autografada",
+    "Ingresso para o jogo",
+    "Cadastro gratuito",
+    "Sorteio especial",
   ];
 
   return (
-    <section id="inicio" className="pt-24 pb-16 bg-primary/10">
-      <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6 animate-fade-in">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary leading-tight">
-              Simule agora o seu crédito ideal para conquistar o seu sonho
+    <section
+      id="inicio"
+      className="relative min-h-[calc(92svh-7rem)] overflow-hidden bg-black text-white"
+    >
+      <img
+        src={raffleHero}
+        alt="Camisa alvinegra autografada e ingresso de jogo em clima de sorteio"
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-black/20" />
+
+      <div className="container relative mx-auto flex min-h-[calc(92svh-7rem)] items-center px-4 py-16 md:py-20">
+        <div className="max-w-3xl space-y-7 animate-fade-in">
+          <p className="w-fit rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold uppercase tracking-wide text-white/90 backdrop-blur">
+            Sorteio CC Lions Evento
+          </p>
+
+          <div className="space-y-5">
+            <h1 className="text-4xl font-bold leading-tight md:text-6xl lg:text-7xl">
+              Concorra a uma camisa do Atletico Mineiro autografada e a um ingresso para o jogo
             </h1>
-
-            <p className="text-lg text-muted-foreground font-medium">
-              + de 1000 simulações realizadas
+            <p className="max-w-2xl text-lg font-medium leading-relaxed text-white/80 md:text-xl">
+              Cadastre seus dados para participar do sorteio especial. A inscricao e gratuita e leva menos de um minuto.
             </p>
+          </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {benefits.map((benefit, index) => (
-                <div key={index} className="flex items-center gap-3">
-                  <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
-                    <Check className="w-4 h-4 text-primary-foreground" />
-                  </div>
-                  <span className="text-foreground">{benefit}</span>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+            {highlights.map((highlight) => (
+              <div key={highlight} className="flex items-center gap-3">
+                <div className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-white text-black">
+                  <Check className="h-4 w-4" />
                 </div>
-              ))}
-            </div>
-
-            <Button
-              onClick={onSimulateClick}
-              size="lg"
-              className="bg-primary hover:bg-primary-hover text-primary-foreground font-semibold text-lg px-8 py-6 rounded-lg shadow-lg hover:shadow-xl transition-all"
-            >
-              Simular crédito agora
-            </Button>
+                <span className="text-white/90">{highlight}</span>
+              </div>
+            ))}
           </div>
 
-          <div className="relative animate-scale-in">
-            <img
-              src={heroBanner}
-              alt="Imóveis e Veículos"
-              className="w-full h-auto rounded-2xl shadow-2xl"
-            />
-          </div>
+          <Button
+            onClick={onSimulateClick}
+            size="lg"
+            className="bg-white px-8 py-6 text-lg font-semibold text-black shadow-lg transition-all hover:bg-white/90 hover:shadow-xl"
+          >
+            Quero participar do sorteio
+          </Button>
         </div>
       </div>
     </section>

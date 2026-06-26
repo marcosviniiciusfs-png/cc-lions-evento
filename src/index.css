@@ -9,37 +9,37 @@ All colors MUST be HSL.
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 0 0% 15%;
+    --foreground: 0 0% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 15%;
+    --card-foreground: 0 0% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 15%;
+    --popover-foreground: 0 0% 12%;
 
-    --primary: 218 93% 12%;
-    --primary-foreground: 0 0% 100%;
-    --primary-hover: 218 93% 18%;
+    --primary: 43 86% 43%;
+    --primary-foreground: 0 0% 8%;
+    --primary-hover: 43 86% 36%;
 
-    --secondary: 218 30% 93%;
-    --secondary-foreground: 218 93% 12%;
+    --secondary: 0 0% 94%;
+    --secondary-foreground: 0 0% 12%;
 
     --muted: 0 0% 96%;
     --muted-foreground: 0 0% 45%;
 
-    --accent: 218 50% 60%;
-    --accent-foreground: 218 93% 12%;
+    --accent: 0 0% 10%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 0 0% 90%;
     --input: 0 0% 90%;
-    --ring: 218 93% 12%;
+    --ring: 43 86% 43%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
-    --gradient-primary: linear-gradient(135deg, hsl(218 93% 12%), hsl(218 93% 18%));
+    --gradient-primary: linear-gradient(135deg, hsl(0 0% 5%), hsl(43 86% 43%));
     --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.08);
     --shadow-hover: 0 4px 16px rgba(2, 22, 57, 0.15);
 
@@ -59,8 +59,8 @@ All colors MUST be HSL.
 
     --sidebar-ring: 217.2 91.2% 59.8%;
 
-    --header-footer: 218 93% 12%;
-    --orange: 218 93% 12%;
+    --header-footer: 0 0% 5%;
+    --orange: 43 86% 43%;
   }
 
   .dark {
