@@ -46,10 +46,10 @@ const Simulator = () => {
 
   const validate = (): string | null => {
     if (!formData.fullName.trim()) return "Informe o seu nome.";
-    if (formData.whatsapp.replace(/\D/g, "").length !== 11) return "Telefone invalido. Use (DDD) 9XXXX-XXXX.";
+    if (formData.whatsapp.replace(/\D/g, "").length !== 11) return "Telefone inválido. Use (DDD) 9XXXX-XXXX.";
     if (!formData.city.trim()) return "Informe a sua cidade.";
-    if (!formData.neighborhoodCondo.trim()) return "Informe o seu bairro ou condominio.";
-    if (!formData.instagramHandle.trim()) return "Informe o seu arroba do Instagram.";
+    if (!formData.neighborhoodCondo.trim()) return "Informe o seu bairro ou condomínio.";
+    if (!formData.instagramHandle.trim()) return "Informe o seu @ do Instagram.";
     return null;
   };
 
@@ -123,10 +123,10 @@ const Simulator = () => {
       <DialogContent className="max-h-[90vh] max-w-md overflow-y-auto sm:max-w-lg">
         <DialogHeader>
           <DialogTitle className="text-2xl text-primary">
-            Inscricao para o sorteio
+            Inscrição para o sorteio
           </DialogTitle>
           <DialogDescription>
-            Preencha os dados para concorrer a camisa autografada e ao ingresso para o jogo do Atletico Mineiro.
+            Preencha os dados para concorrer à camisa autografada e ao ingresso para um jogo do Atlético Mineiro.
           </DialogDescription>
         </DialogHeader>
 
@@ -185,21 +185,21 @@ const Simulator = () => {
 
           <div className="space-y-2">
             <Label htmlFor="neighborhoodCondo">
-              Qual o seu bairro/condominio?
+              Qual é o seu bairro/condomínio?
               <RequiredMark />
             </Label>
             <Input
               id="neighborhoodCondo"
               value={formData.neighborhoodCondo}
               onChange={(e) => setField("neighborhoodCondo", e.target.value)}
-              placeholder="Digite o bairro ou condominio"
+              placeholder="Digite o bairro ou condomínio"
               autoComplete="address-level3"
             />
           </div>
 
           <div className="space-y-2">
             <Label htmlFor="instagramHandle">
-              Qual o seu arroba do Instagram?
+              Qual é o seu @ do Instagram?
               <RequiredMark />
             </Label>
             <Input

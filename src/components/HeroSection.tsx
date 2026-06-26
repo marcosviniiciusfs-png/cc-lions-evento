@@ -28,7 +28,7 @@ const HeroSection = ({ onSimulateClick }: HeroSectionProps) => {
       />
       <img
         src={raffleHero}
-        alt="Camisa do Atletico Mineiro do sorteio"
+        alt="Camisa do Atlético Mineiro do sorteio"
         className="absolute bottom-0 right-[-34%] h-[82%] w-auto max-w-none object-contain opacity-45 sm:right-[-18%] md:inset-y-0 md:right-0 md:h-full md:w-[58%] md:object-contain md:object-right md:opacity-100"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-black via-black/90 to-black/25 md:via-black/78 md:to-black/5" />
@@ -42,10 +42,10 @@ const HeroSection = ({ onSimulateClick }: HeroSectionProps) => {
 
           <div className="space-y-5">
             <h1 className="text-4xl font-bold leading-tight md:text-6xl lg:text-7xl">
-              Concorra a uma camisa do Atletico Mineiro autografada e a um ingresso para o jogo
+              Concorra a uma camisa do Atlético Mineiro autografada e a um ingresso para um jogo
             </h1>
             <p className="max-w-2xl text-lg font-medium leading-relaxed text-white/80 md:text-xl">
-              Cadastre seus dados para participar do sorteio especial. A inscricao e gratuita e leva menos de um minuto.
+              Cadastre seus dados para participar do sorteio especial. A inscrição é gratuita e leva menos de um minuto.
             </p>
           </div>
 

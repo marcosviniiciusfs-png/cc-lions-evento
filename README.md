@@ -2,10 +2,10 @@
 
 Landing page em Vite/React para captar interessados no sorteio de:
 
-- camisa do Atletico Mineiro autografada pelos jogadores;
-- ingresso para jogo do Atletico Mineiro.
+- camisa do Atlético Mineiro autografada pelos jogadores;
+- ingresso para um jogo do Atlético Mineiro.
 
-O formulario abre em popup e coleta nome, telefone, cidade/bairro, cidade, bairro/condominio e arroba do Instagram.
+O formulário abre em pop-up e coleta nome, telefone, cidade, bairro/condomínio e @ do Instagram.
 
 ## Desenvolvimento
 

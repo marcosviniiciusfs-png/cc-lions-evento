@@ -17,7 +17,7 @@ const ThankYou = () => {
             Cadastro confirmado!
           </h1>
           <p className="text-lg text-muted-foreground">
-            Seus dados foram registrados para o sorteio da camisa autografada e do ingresso para o jogo do Atletico Mineiro.
+            Seus dados foram registrados para o sorteio da camisa autografada e do ingresso para um jogo do Atlético Mineiro.
           </p>
         </div>
 

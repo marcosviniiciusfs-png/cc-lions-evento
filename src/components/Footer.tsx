@@ -8,7 +8,7 @@ const Footer = () => {
           <div className="space-y-3">
             <p className="text-xl font-black uppercase tracking-wide">CC Lions Evento</p>
             <p className="max-w-md text-sm leading-relaxed text-white/70">
-              Cadastro de interessados para o sorteio de uma camisa autografada e um ingresso para jogo do Atletico Mineiro.
+              Cadastro de interessados para o sorteio de uma camisa autografada e um ingresso para um jogo do Atlético Mineiro.
             </p>
             <p className="max-w-md text-xs leading-relaxed text-white/60">
               Sorteio promocional independente. Marcas citadas pertencem aos seus respectivos titulares.
@@ -53,8 +53,8 @@ const Footer = () => {
         <div className="mt-8 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm text-white/70 md:flex-row md:items-center md:justify-between">
           <p>© 2026 CC Lions Evento. Todos os direitos reservados.</p>
           <div className="flex gap-5">
-            <button className="transition-colors hover:text-white">Politica de Privacidade</button>
-            <button className="transition-colors hover:text-white">Termos de Uso</button>
+            <button className="transition-colors hover:text-white">Política de privacidade</button>
+            <button className="transition-colors hover:text-white">Termos de uso</button>
           </div>
         </div>
       </div>

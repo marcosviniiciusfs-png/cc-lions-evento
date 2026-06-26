@@ -10,12 +10,12 @@ const BenefitsSection = () => {
     {
       icon: Ticket,
       title: "Ingresso para o jogo",
-      description: "O ganhador tambem leva um ingresso para viver a experiencia do Atletico Mineiro de perto.",
+      description: "O ganhador também leva um ingresso para viver a experiência do Atlético Mineiro de perto.",
     },
     {
       icon: MessageCircle,
-      title: "Cadastro rapido",
-      description: "Preencha seus dados no popup e deixe seu telefone e Instagram para validarmos sua participacao.",
+      title: "Cadastro rápido",
+      description: "Preencha seus dados no pop-up e deixe seu telefone e Instagram para validarmos sua participação.",
     },
   ];
 
@@ -24,13 +24,13 @@ const BenefitsSection = () => {
       <div className="container mx-auto px-4">
         <div className="mb-10 max-w-3xl">
           <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-primary">
-            Premios do sorteio
+            Prêmios do sorteio
           </p>
           <h2 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">
-            Cadastre-se para concorrer aos itens oficiais da experiencia atleticana
+            Cadastre-se para concorrer aos itens oficiais da experiência atleticana
           </h2>
           <p className="text-lg text-muted-foreground">
-            O formulario serve apenas para registrar os interessados no sorteio e organizar o contato com os participantes.
+            O formulário serve apenas para registrar os interessados no sorteio e organizar o contato com os participantes.
           </p>
         </div>
 

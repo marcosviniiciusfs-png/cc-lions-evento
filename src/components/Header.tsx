@@ -26,7 +26,7 @@ const Header = () => {
         <button
           onClick={() => scrollToSection("inicio")}
           className="flex flex-col text-left leading-tight"
-          aria-label="Voltar ao inicio"
+          aria-label="Voltar ao início"
         >
           <span className="text-lg font-black uppercase tracking-wide">CC Lions Evento</span>
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">
@@ -39,13 +39,13 @@ const Header = () => {
             onClick={() => scrollToSection("inicio")}
             className="text-white/90 transition-colors hover:text-white"
           >
-            Inicio
+            Início
           </button>
           <button
             onClick={() => scrollToSection("beneficios")}
             className="text-white/90 transition-colors hover:text-white"
           >
-            Premios
+            Prêmios
           </button>
           <button
             onClick={triggerSimulator}
@@ -78,13 +78,13 @@ const Header = () => {
               onClick={() => scrollToSection("inicio")}
               className="py-2 text-left text-white/90 transition-colors hover:text-white"
             >
-              Inicio
+              Início
             </button>
             <button
               onClick={() => scrollToSection("beneficios")}
               className="py-2 text-left text-white/90 transition-colors hover:text-white"
             >
-              Premios
+              Prêmios
             </button>
             <button
               onClick={triggerSimulator}
