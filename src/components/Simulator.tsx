@@ -87,8 +87,8 @@ const Simulator = () => {
       city: formData.city.trim(),
       neighborhoodCondo: formData.neighborhoodCondo.trim(),
       instagramHandle: formData.instagramHandle.trim(),
-      campaign: "sorteio_camisa_autografada_ingresso_atletico_mineiro",
-      prizes: ["camisa_autografada", "ingresso_jogo_atletico_mineiro"],
+      campaign: "sorteio_camisa_oficial_ingresso_atletico_mineiro",
+      prizes: ["camisa_oficial_atletico_mineiro", "ingresso_jogo_atletico_mineiro"],
       data_entrada: today,
       event_id: eventId,
       fbp: getCookie("_fbp"),
@@ -126,7 +126,7 @@ const Simulator = () => {
             Inscrição para o sorteio
           </DialogTitle>
           <DialogDescription>
-            Preencha os dados para concorrer à camisa autografada e ao ingresso para um jogo do Atlético Mineiro.
+            Preencha os dados para concorrer à camisa oficial do Atlético Mineiro e a um ingresso pra um jogo do Atlético Mineiro.
           </DialogDescription>
         </DialogHeader>
 

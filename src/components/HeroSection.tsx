@@ -8,8 +8,8 @@ interface HeroSectionProps {
 
 const HeroSection = ({ onSimulateClick }: HeroSectionProps) => {
   const highlights = [
-    "Camisa autografada",
-    "Ingresso para o jogo",
+    "Camisa oficial do Atlético Mineiro",
+    "Um ingresso pra um jogo do Atlético Mineiro",
     "Cadastro gratuito",
     "Sorteio especial",
   ];
@@ -42,7 +42,7 @@ const HeroSection = ({ onSimulateClick }: HeroSectionProps) => {
 
           <div className="space-y-5">
             <h1 className="text-4xl font-bold leading-tight md:text-6xl lg:text-7xl">
-              Concorra a uma camisa do Atlético Mineiro autografada e a um ingresso para um jogo
+              Concorra a uma camisa oficial do Atlético Mineiro e a um ingresso pra um jogo do Atlético Mineiro
             </h1>
             <p className="max-w-2xl text-lg font-medium leading-relaxed text-white/80 md:text-xl">
               Cadastre seus dados para participar do sorteio especial. A inscrição é gratuita e leva menos de um minuto.

@@ -4,13 +4,13 @@ const BenefitsSection = () => {
   const benefits = [
     {
       icon: Gift,
-      title: "Camisa autografada",
-      description: "Uma camisa alvinegra autografada pelos jogadores para guardar como item de colecionador.",
+      title: "Camisa oficial do Atlético Mineiro",
+      description: "Uma camisa oficial do Atlético Mineiro para torcer com o manto alvinegro.",
     },
     {
       icon: Ticket,
-      title: "Ingresso para o jogo",
-      description: "O ganhador também leva um ingresso para viver a experiência do Atlético Mineiro de perto.",
+      title: "Ingresso pra um jogo do Atlético Mineiro",
+      description: "O sorteio também inclui um ingresso pra um jogo do Atlético Mineiro.",
     },
     {
       icon: MessageCircle,

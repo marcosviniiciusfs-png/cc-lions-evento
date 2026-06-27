@@ -141,8 +141,8 @@ async function sendToSupabase(env, payload) {
     cidade: payload.city,
     bairro_condominio: payload.neighborhoodCondo,
     instagram: payload.instagramHandle,
-    campanha: payload.campaign || "sorteio_camisa_autografada_ingresso_atletico_mineiro",
-    premios: payload.prizes || ["camisa_autografada", "ingresso_jogo_atletico_mineiro"],
+    campanha: payload.campaign || "sorteio_camisa_oficial_ingresso_atletico_mineiro",
+    premios: payload.prizes || ["camisa_oficial_atletico_mineiro", "ingresso_jogo_atletico_mineiro"],
     data_entrada: payload.data_entrada,
     event_id: payload.event_id,
   };

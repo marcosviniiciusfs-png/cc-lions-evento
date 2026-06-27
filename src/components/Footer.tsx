@@ -8,7 +8,7 @@ const Footer = () => {
           <div className="space-y-3">
             <p className="text-xl font-black uppercase tracking-wide">CC Lions Evento</p>
             <p className="max-w-md text-sm leading-relaxed text-white/70">
-              Cadastro de interessados para o sorteio de uma camisa autografada e um ingresso para um jogo do Atlético Mineiro.
+              Cadastro de interessados para o sorteio de uma camisa oficial do Atlético Mineiro e de um ingresso pra um jogo do Atlético Mineiro.
             </p>
             <p className="max-w-md text-xs leading-relaxed text-white/60">
               Sorteio promocional independente. Marcas citadas pertencem aos seus respectivos titulares.
