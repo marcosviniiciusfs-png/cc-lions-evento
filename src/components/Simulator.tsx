@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/dialog";
 import { useSimulatorModal } from "@/contexts/SimulatorModalContext";
 
-const WORKER_URL = "https://cc-lions-evento-lead.marcosviniicius-fs.workers.dev/";
+const LEAD_WEBHOOK_URL = "https://cc-lions-evento-lead.marcosviniicius-fs.workers.dev/";
 
 type FormData = {
   fullName: string;
@@ -53,7 +53,7 @@ const Simulator = () => {
     return null;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (isSubmitting) return;
 
@@ -82,8 +82,8 @@ const Simulator = () => {
     };
 
     const payload = {
-      ...formData,
       fullName: formData.fullName.trim(),
+      whatsapp: formData.whatsapp.trim(),
       city: formData.city.trim(),
       neighborhoodCondo: formData.neighborhoodCondo.trim(),
       instagramHandle: formData.instagramHandle.trim(),
@@ -102,14 +102,25 @@ const Simulator = () => {
     }
 
     try {
-      fetch(WORKER_URL, {
+      const response = await fetch(LEAD_WEBHOOK_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
-        keepalive: true,
-      }).catch((err) => console.error("Worker dispatch failed:", err));
+      });
+
+      if (!response.ok) {
+        const text = await response.text().catch(() => "");
+        throw new Error(`Webhook ${response.status}: ${text.slice(0, 200)}`);
+      }
     } catch (err) {
-      console.error("Worker dispatch threw:", err);
+      console.error("Lead webhook dispatch failed:", err);
+      setIsSubmitting(false);
+      toast({
+        title: "Não foi possível enviar",
+        description: "Tente novamente em alguns instantes.",
+        variant: "destructive",
+      });
+      return;
     }
 
     setFormData(emptyForm);

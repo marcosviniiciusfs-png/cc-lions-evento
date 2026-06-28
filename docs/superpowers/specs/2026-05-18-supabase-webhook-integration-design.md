@@ -17,9 +17,9 @@ Decisões já tomadas durante o brainstorming:
 ## Endpoint
 
 - Método: `POST`
-- URL: `https://uxttihjsxfowursjyult.supabase.co/functions/v1/form-webhook/084e66911cd5927aad2a4bb74ebfd59e9730c37d3a269fa4a07e7bb3ab728a27`
+- URL: configurada como segredo `SUPABASE_WEBHOOK_URL` no Cloudflare Worker.
 - Headers:
-  - `Authorization: Bearer whi_odJaxq5NdTefWkl2LxEILlItDIwbwquv`
+  - `Authorization: Bearer <SUPABASE_WEBHOOK_TOKEN>`
   - `Content-Type: application/json`
 
 ## Payload

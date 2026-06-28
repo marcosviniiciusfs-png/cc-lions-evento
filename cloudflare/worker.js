@@ -5,10 +5,8 @@
  *   [Site] POST /  --->  [Worker]  --->  Supabase webhook (lead destination)
  *                                  --->  Meta Graph API (Conversions API "Lead" event)
  *
- * The Worker responds 202 immediately and continues fan-out via waitUntil(),
- * so the user never waits on Supabase or Meta. The Pixel "Lead" event fires
- * client-side with the same event_id, and Meta deduplicates server vs browser
- * via that id.
+ * The Worker waits for Supabase before confirming the form submission, then
+ * continues Meta fan-out via waitUntil().
  *
  * Secrets (configure in Cloudflare dashboard → Worker → Settings → Variables):
  *   META_PIXEL_ID            e.g. 1651769449464779
@@ -25,6 +23,9 @@ const DEFAULT_ALLOWED_ORIGINS = [
   DEFAULT_ALLOWED_ORIGIN,
   "http://localhost:5173",
   "http://localhost:4173",
+  "https://cclionsevento.simulead.com.br",
+  "http://cclionsevento.simulead.com.br",
+  "https://marcosviniiciusfs-png.github.io",
 ];
 
 export default {
@@ -78,23 +79,20 @@ export default {
       );
     }
 
+    try {
+      await sendToSupabase(env, payload);
+    } catch (err) {
+      console.error("[Supabase] rejected:", err);
+      return jsonResponse({ error: "Lead destination failed" }, 502, origin);
+    }
+
     ctx.waitUntil(
-      Promise.allSettled([
-        sendToSupabase(env, payload),
-        sendToMetaCAPI(env, payload, clientIp, userAgent),
-      ]).then((results) => {
-        results.forEach((r, i) => {
-          if (r.status === "rejected") {
-            console.error(
-              `[fan-out ${i === 0 ? "Supabase" : "Meta CAPI"}] rejected:`,
-              r.reason,
-            );
-          }
-        });
+      sendToMetaCAPI(env, payload, clientIp, userAgent).catch((err) => {
+        console.error("[Meta CAPI] rejected:", err);
       }),
     );
 
-    return jsonResponse({ accepted: true, event_id: payload.event_id }, 202, origin);
+    return jsonResponse({ accepted: true, event_id: payload.event_id }, 200, origin);
   },
 };
 
@@ -135,9 +133,14 @@ function jsonResponse(body, status, origin) {
 }
 
 async function sendToSupabase(env, payload) {
+  if (!env.SUPABASE_WEBHOOK_URL) {
+    throw new Error("Missing SUPABASE_WEBHOOK_URL secret");
+  }
+
   const body = {
     nome: payload.fullName,
     telefone: payload.whatsapp,
+    city: payload.city,
     cidade: payload.city,
     bairro_condominio: payload.neighborhoodCondo,
     instagram: payload.instagramHandle,
@@ -145,14 +148,17 @@ async function sendToSupabase(env, payload) {
     premios: payload.prizes || ["camisa_oficial_atletico_mineiro", "ingresso_jogo_atletico_mineiro"],
     data_entrada: payload.data_entrada,
     event_id: payload.event_id,
+    source_url: payload.source_url,
   };
+
+  const headers = { "Content-Type": "application/json" };
+  if (env.SUPABASE_WEBHOOK_TOKEN) {
+    headers.Authorization = `Bearer ${env.SUPABASE_WEBHOOK_TOKEN}`;
+  }
 
   const response = await fetch(env.SUPABASE_WEBHOOK_URL, {
     method: "POST",
-    headers: {
-      Authorization: `Bearer ${env.SUPABASE_WEBHOOK_TOKEN}`,
-      "Content-Type": "application/json",
-    },
+    headers,
     body: JSON.stringify(body),
   });
 
