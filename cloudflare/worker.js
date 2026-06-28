@@ -79,8 +79,9 @@ export default {
       );
     }
 
+    let supabaseResult;
     try {
-      await sendToSupabase(env, payload);
+      supabaseResult = await sendToSupabase(env, payload);
     } catch (err) {
       console.error("[Supabase] rejected:", err);
       return jsonResponse({ error: "Lead destination failed" }, 502, origin);
@@ -92,7 +93,15 @@ export default {
       }),
     );
 
-    return jsonResponse({ accepted: true, event_id: payload.event_id }, 200, origin);
+    return jsonResponse(
+      {
+        accepted: true,
+        event_id: payload.event_id,
+        lead_id: supabaseResult?.lead_id,
+      },
+      200,
+      origin,
+    );
   },
 };
 
@@ -165,6 +174,20 @@ async function sendToSupabase(env, payload) {
   if (!response.ok) {
     const text = await response.text().catch(() => "");
     throw new Error(`Supabase ${response.status}: ${text.slice(0, 200)}`);
+  }
+
+  const text = await response.text().catch(() => "");
+  if (!text) return null;
+
+  try {
+    const result = JSON.parse(text);
+    if (result?.success === false) {
+      throw new Error(`Supabase success=false: ${JSON.stringify(result).slice(0, 200)}`);
+    }
+    return result;
+  } catch (err) {
+    if (err instanceof SyntaxError) return { raw: text.slice(0, 200) };
+    throw err;
   }
 }
 
