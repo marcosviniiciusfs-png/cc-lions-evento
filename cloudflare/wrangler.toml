@@ -7,7 +7,11 @@ compatibility_date = "2026-05-01"
 ALLOWED_ORIGINS = "http://localhost:8080,http://localhost:5173,http://localhost:4173,https://cclionsevento.simulead.com.br,http://cclionsevento.simulead.com.br,https://marcosviniiciusfs-png.github.io"
 
 # Secrets are configured via:
+#   npx wrangler secret put GITHUB_LEADS_TOKEN
 #   npx wrangler secret put META_PIXEL_ID
 #   npx wrangler secret put META_ACCESS_TOKEN
 #   npx wrangler secret put SUPABASE_WEBHOOK_URL
 #   npx wrangler secret put SUPABASE_WEBHOOK_TOKEN
+#
+# To intentionally archive leads in this public repo, also configure:
+#   GITHUB_LEADS_ALLOW_PUBLIC = "true"
